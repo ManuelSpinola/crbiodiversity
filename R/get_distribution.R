@@ -1,6 +1,6 @@
-#' Get locations of a species
+#' Get distribution of a species
 #'
-#' @name get_locations
+#' @name get_distribution
 #'
 #'
 #'
@@ -13,10 +13,11 @@ library(sf)
 library(crgeo)
 library(crgrids)
 
-
-get_locations <- function(species_name) {
+get_distribution <- function(species_name) {
   gbif_data <- occ(query = species_name, from = c("gbif", "inat", "ebird"), geometry = st_bbox(cr_outline), has_coord = TRUE)
   df <- occ2df(gbif_data)
-  return(df)
+  df_sf <- st_as_sf(df, coords = c("longitude", "latitude"), crs = 4326) |> st_intersection(cr_outline)
+  return(df_sf)
 }
+
 
