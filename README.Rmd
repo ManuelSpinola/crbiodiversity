@@ -33,22 +33,31 @@ devtools::install_github("ManuelSpinola/crbiodiversity")
 
 This is a basic example how to use the package:
 
-```{r example}
+```{r example, message = FALSE, warning=FALSE}
 library(tidyverse)
 library(spocc)
 library(sf)
+library(crgeo)
+library(crgrids)
 library(crbiodiversity)
-## basic example code
 ```
 
 
 ```{r}
-get_locations("Agalychnis callidryas")
+loc <- get_locations("Agalychnis callidryas")
 ```
 
 
-```{r, echo = FALSE}
-plot(pressure)
+```{r}
+head(loc)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+
+```{r}
+get_map("Agalychnis callidryas")
+```
+
+
+
+
+
