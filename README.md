@@ -6,45 +6,71 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of crbiodiversity is to …
+The goal of crbiodiversity is to retrieve biodiversity data of Costa
+Rica
 
 ## Installation
 
 You can install the development version of crbiodiversity like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools")
+devtools::install_github("ManuelSpinola/crbiodiversity")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example how to use the package:
 
 ``` r
+library(tidyverse)
+#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#> ✔ forcats   1.0.0     ✔ stringr   1.5.0
+#> ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+#> ✔ purrr     1.0.1     
+#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+library(spocc)
+library(sf)
+#> Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
+library(crgeo)
+library(crgrids)
 library(crbiodiversity)
-## basic example code
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+loc <- get_locations("Agalychnis callidryas")
+#> 2 
+#> 3
+#> Warning: No species in eBird taxonomy with matching scientific name.:
+#> Agalychnis callidryas
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+``` r
+head(loc)
+#> # A tibble: 6 × 6
+#>   name                               longitude  latitude  prov  date       key  
+#>   <chr>                              <chr>      <chr>     <chr> <date>     <chr>
+#> 1 Agalychnis callidryas (Cope, 1862) -83.950451 10.325009 gbif  2023-01-02 4011…
+#> 2 Agalychnis callidryas (Cope, 1862) -83.953133 10.33412  gbif  2023-01-03 4011…
+#> 3 Agalychnis callidryas (Cope, 1862) -84.06818  10.4503   gbif  2023-01-03 4014…
+#> 4 Agalychnis callidryas (Cope, 1862) -84.068276 10.450406 gbif  2023-01-03 4014…
+#> 5 Agalychnis callidryas (Cope, 1862) -84.978972 10.707888 gbif  2023-01-07 4067…
+#> 6 Agalychnis callidryas (Cope, 1862) -84.708118 10.438699 gbif  2023-01-07 4014…
+```
 
-You can also embed plots, for example:
+``` r
+get_map("Agalychnis callidryas")
+#> 2 
+#> 3
+#> Warning: No species in eBird taxonomy with matching scientific name.:
+#> Agalychnis callidryas
+#> Warning: attribute variables are assumed to be spatially constant throughout
+#> all geometries
+```
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />

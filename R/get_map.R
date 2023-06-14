@@ -20,8 +20,8 @@ get_map <- function(species_name) {
   df_sf_t <- st_as_sf(df, coords = c("longitude", "latitude"), crs = 4326) |>
     st_intersection(cr_outline) |>
     st_transform(5367)
-  p <- st_filter(cr_grid_8km, df_sf_t) |> mutate(pa = "Detectado")
-  a <- st_filter(cr_grid_8km, st_union(df_sf_t), .predicate = st_disjoint) |> mutate(pa = "No detectado")
+  p <- st_filter(cr_grid_8km, df_sf_t) |> mutate(pa = "Detectada")
+  a <- st_filter(cr_grid_8km, st_union(df_sf_t), .predicate = st_disjoint) |> mutate(pa = "No detectada")
   rbind_grid <- rbind(p, a)
   mapa <- ggplot() +
     geom_sf(data = rbind_grid, aes(fill = pa)) +
