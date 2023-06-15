@@ -4,4 +4,4 @@ citEntry(
   author = "Manuel Spínola",
   year = 2023,
   url = "https://manuelspinola.github.io/crbiodiversity/",
-  textVersion = paste("Spínola Manuel. 2023. crbiodiversity: biodiversity data of Costa Rica. https://manuelspinola.github.io/crbiodiversity/")
+  textVersion = paste("Spínola Manuel. 2023. crbiodiversity: biodiversity data of Costa Rica. https://manuelspinola.github.io/crbiodiversity/"))

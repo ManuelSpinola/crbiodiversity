@@ -6,16 +6,28 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of crbiodiversity is to retrieve biodiversity data of Costa
-Rica
+The goal of crbiodiversity is to searching and retrieving biodiversity
+data of Costa Rica
 
 ## Installation
 
-You can install the development version of crbiodiversity like so:
+You can install the development version of **crbiodiversity** like so:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("ManuelSpinola/crbiodiversity")
+```
+
+Also you need to install the following packages:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("ManuelSpinola/crgeo")
+```
+
+``` r
+# install.packages("devtools")
+devtools::install_github("ManuelSpinola/crgrids")
 ```
 
 ## Example
@@ -35,8 +47,6 @@ library(crbiodiversity)
 loc <- get_locations("Agalychnis callidryas")
 #> 2 
 #> 3
-#> Warning: No species in eBird taxonomy with matching scientific name.:
-#> Agalychnis callidryas
 ```
 
 ``` r
@@ -56,8 +66,6 @@ head(loc)
 get_map("Agalychnis callidryas")
 #> 2 
 #> 3
-#> Warning: No species in eBird taxonomy with matching scientific name.:
-#> Agalychnis callidryas
 #> Warning: attribute variables are assumed to be spatially constant throughout
 #> all geometries
 ```

@@ -2,7 +2,22 @@
 % Please edit documentation in R/get_map.R
 \name{get_map}
 \alias{get_map}
-\title{Get a gridded map of a species}
+\title{Download species occurrence data for Costa Rica and get a gridded map}
+\arguments{
+\item{species_name}{Genus and species (for example, "Desmodus rotundus")}
+}
+\value{
+A ggplot2 plot.
+}
 \description{
-Get a gridded map of a species
+Search, retrieve and obtain a gridded map species occurrences in Costa Rica from gbif (\href{https://www.gbif.org}{GBIF}) and iNaturalist (\href{https://www.inaturalist.org/}{iNaturalist}).
+
+This function is a wrapper of the occ function from the \href{https://cran.r-project.org/web/packages/spocc/index.html}{spocc} package.
+
+#' @usage get_map(species_name)
+}
+\examples{
+
+get_map("Agalychnis callidryas")
+
 }

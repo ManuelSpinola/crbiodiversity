@@ -2,7 +2,26 @@
 % Please edit documentation in R/get_locations.R
 \name{get_locations}
 \alias{get_locations}
-\title{Get locations of a species}
+\title{Download species occurrence data for Costa Rica}
+\usage{
+get_locations(species_name, sf = FALSE)
+}
+\arguments{
+\item{species_name}{Genus and species (for example, "Desmodus rotundus")}
+
+\item{sf}{Logical. Return a spatial (sf) or a data frame}
+}
+\value{
+A data frame if sf = FALSE (default), or an sf object if sf = TRUE.
+}
 \description{
-Get locations of a species
+Search and retrieve species occurrences in Costa Rica from gbif (\href{https://www.gbif.org}{GBIF}) and iNaturalist (\href{https://www.inaturalist.org/}{iNaturalist}).
+
+This function is a wrapper of the occ function from the \href{https://cran.r-project.org/web/packages/spocc/index.html}{spocc} package.
+}
+\examples{
+
+loc <- get_locations("Agalychnis callidryas")
+head(loc)
+
 }
