@@ -36,9 +36,9 @@ get_map <- function(species_name) {
     st_transform(5367)
   p <- st_filter(cr_grid_8km, occurrences_t) |> mutate(pa = "Detectada")
   a <- st_filter(cr_grid_8km, st_union(occurrences_t), .predicate = st_disjoint) |> mutate(pa = "No detectada")
-  rbind_grid <- rbind(p, a)
+  grid_pa <- rbind(p, a)
   mapa <- ggplot() +
-    geom_sf(data = rbind_grid, aes(fill = pa)) +
+    geom_sf(data = grid_pa, aes(fill = pa)) +
     scale_fill_viridis_d(name = "Condición") +
     theme_minimal()
   return(mapa)

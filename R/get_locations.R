@@ -31,7 +31,7 @@ library(crgeo)
 library(crgrids)
 
 
-get_distribution <- function(species_name, sf = TRUE) {
+get_locations <- function(species_name, sf = FALSE) {
   occurrences <- occ(query = species_name, from = c("gbif", "inat"), geometry = st_bbox(cr_outline), has_coord = TRUE)
   occurrences <- occ2df(occurrences)
 
