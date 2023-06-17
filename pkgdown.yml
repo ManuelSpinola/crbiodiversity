@@ -2,7 +2,7 @@ pandoc: 3.1.1
 pkgdown: 2.0.7.9000
 pkgdown_sha: 39083f38bbb2de2e1126529392bddf3e6e262ab4
 articles: {}
-last_built: 2023-06-17T13:15Z
+last_built: 2023-06-17T13:19Z
 urls:
   reference: https://manuelspinola.github.io/crbiodiversity/reference
   article: https://manuelspinola.github.io/crbiodiversity/articles
