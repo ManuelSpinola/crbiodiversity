@@ -17,5 +17,8 @@ Imports:
     sf,
     ggplot2,
     dplyr
+Suggests:
+    crgeo
+    crgrids
 
 
