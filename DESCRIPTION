@@ -18,7 +18,7 @@ Imports:
     ggplot2,
     dplyr
 Suggests:
-    crgeo
+    crgeo,
     crgrids
 
 
